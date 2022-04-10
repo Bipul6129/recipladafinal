@@ -1,0 +1,46 @@
+.cardcontainer {
+  grid-row: 2/3;
+}
+
+.recipe_image {
+  grid-row: 1;
+}
+.card_heading {
+  grid-row: 2/3;
+  font-size: 25px;
+  display: flex;
+  justify-content: center;
+  margin-top: 4%;
+}
+
+.cards {
+  position: relative;
+  height: 450px;
+  width: 390px;
+  background-color: #a8a0a0;
+  float: left;
+  margin-left: 5.2%;
+  margin-top: 2%;
+  box-shadow: 5px 4px 4px #8a8888;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 2fr 1fr 1fr;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-rows: 1fr 2fr;
+  height: 100vh;
+  width: 100vw;
+}
+
+.main-header {
+  grid-column: 1/2;
+  grid-row: 1/2;
+}
+
+.buttons_container {
+  grid-row: 3/4;
+  display: flex;
+  justify-content: center;
+}
