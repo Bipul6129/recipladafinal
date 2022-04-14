@@ -33,7 +33,7 @@ if($_SESSION['is_admin']!=1){
         <?php echo "<h1>Welcome ".$_SESSION['user_name']."</h1>" ?>
         <a href="create_recipe.php" style="color:white">Create Recipe</a></br>
         <a href="show_users.php" style="color:white">Show users</a></br>
-        <a href="create_recipe.php" style="color:white">Edit Recipe</a></br>
+        <a href="editrecipe.php" style="color:white">Edit Recipe</a></br>
         <a href="add_ingredient.php" style="color:white">Add ingredient</a></br>
 
     </div>
