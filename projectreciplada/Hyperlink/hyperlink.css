@@ -1,0 +1,49 @@
+body
+{
+	background:url("social.jpg");
+	background-size: cover;
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+}
+h1
+{
+	opacity:0.9 ;position:relative; left: 15%;
+  	border: 5px dashed grey; border-radius: 20px;
+  	padding: 25px;
+  	background-repeat: no-repeat; background-color:grey; background-origin: content-box, padding-box;
+  	max-width: 800px;
+  	color: #29575B; font-weight: 1; font-family: monospace;
+}
+.intro
+{
+	opacity: 0.8; border:5px; border-radius: 10px; position: relative;
+	left: 2%;
+	padding: 25px; max-width: 810px;
+	background-origin:content-box, padding-box;background-color: #952323;
+	font-size: 120%; color: white; font-family: Bahnschrift;
+}
+.contact
+{
+	opacity: 1; border:5px; border-radius: 15px; position: relative;
+	left: 72.5%;
+	 max-width: 330px;
+	 background-origin:content-box;
+	color: #0D9245; font-family: Bahnschrift;
+	bottom: 180px; right: 20px; overflow: hidden;
+
+}
+.description
+{
+	opacity: 0.8; border:5px; border-radius: 10px; position: absolute;
+	left: 2.5%; top: 330px;
+	padding: 25px; max-width: 810px; 
+	background-color:#952323 ; background-origin:content-box, padding-box;
+	font-size: 120%; color: white; font-family: Bahnschrift;
+}
+.my-info
+{
+	opacity: 0.8; border:5px; border-radius: 10px; position: absolute;
+	left:25%; padding: 15px; max-width: 810px; top: 720px; padding-top: 5px; padding-bottom: 5px;
+	background-color: #5A2190 ; background-origin:content-box, padding-box;
+	font-size: 120%; color: white; font-family: monospace;
+}
