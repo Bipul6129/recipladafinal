@@ -1,0 +1,278 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+@font-face {
+  font-family: abz;
+  src: url(fonts/ABeeZee-regular.ttf);
+}
+body {
+  background: url("images/background.png");
+  font-family: abz;
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: center center;
+  color: white;
+  position: absolute;
+}
+.main-header {
+  display: flex;
+  justify-content: space-between;
+  height: 140px;
+  max-width: 100vw;
+}
+.brand-logo {
+  background: url("images/reciplada.png");
+  background-repeat: no-repeat;
+  position: absolute;
+  background-size: contain;
+  background-position: top left;
+  height: 110px;
+  width: 266px;
+  left: 95px;
+  top: 8px;
+  border-radius: 0px;
+  display: flex;
+}
+.main-nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+}
+a {
+  text-decoration: none;
+  color: white;
+}
+.sign-in {
+  display: flex;
+  text-decoration: none;
+  font-family: abz;
+  font-size: 22px;
+  color: white;
+  position: absolute;
+  left: 1111px;
+  width: 85px;
+  top: 50px;
+  transition: transform 0.25s;
+}
+.sign-in:hover {
+  transform: scale(1.05);
+}
+.sign-up {
+  display: flex;
+  text-decoration: none;
+  font-family: abz;
+  font-size: 22px;
+  color: white;
+  position: absolute;
+  left: 1230px;
+  width: 95px;
+  top: 45px;
+  padding-left: 5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-right: 5px;
+  border: 1px solid white;
+  box-sizing: border-box;
+  border-radius: 10px;
+  transition: transform 0.2s;
+}
+.sign-up:hover {
+  transform: scale(1.05);
+}
+.search-bar {
+  display: flex;
+  left: 715px;
+  position: absolute;
+  top: 40px;
+  padding: 12px 24px;
+  width: 340px;
+  padding: 12px 24px;
+
+  background-color: transparent;
+  transition: transform 250ms ease-in-out;
+  font-size: 14px;
+  line-height: 18px;
+
+  color: #ffffff;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-size: 18px 18px;
+  background-position: 95% center;
+  border-radius: 50px;
+  border: 1px solid white;
+  transition: all 250ms ease-in-out;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+}
+.search-bar::placeholder {
+  color: #d3bdd4;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+.search-bar:hover,
+.search-bar:focus {
+  padding: 12px 0;
+  outline: 0;
+  border: 1px solid transparent;
+  border-bottom: 1px solid #575756;
+  border-radius: 0;
+  background-position: 100% center;
+}
+.main-section {
+  position: absolute;
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+}
+.left {
+  position: absolute;
+  align-content: left;
+  display: flex;
+  width: 815px;
+  height: 500px;
+}
+
+.title {
+  font-size: 70px;
+  position: absolute;
+  display: flex;
+  left: 125px;
+  top: 45px;
+}
+.intro {
+  position: absolute;
+  display: flex;
+  font-size: 26px;
+  top: 140px;
+  left: 135px;
+  line-height: 1.5;
+  width: 600px;
+}
+.right {
+  position: absolute;
+  align-content: right;
+  display: flex;
+  left: 905px;
+  top: 45px;
+  transition: transform 0.25s;
+}
+.right:hover {
+  transform: scale(1.05);
+}
+.input {
+  background-color: white;
+  opacity: 75%;
+  border: 1px white;
+  border-radius: 11px;
+  backface-visibility: none;
+  background-repeat: no-repeat;
+  color: black;
+  font-family: inherit;
+  padding: 12px 24px;
+  width: 355px;
+  height: 50px;
+  padding: 12px 24px;
+}
+
+#form-top {
+  display: flex;
+  justify-content: space-between;
+
+  width: 900px;
+  height: 100px;
+  left: 270px;
+  top: 185px;
+  position: absolute;
+}
+#form-bot {
+  display: flex;
+  justify-content: space-between;
+
+  width: 900px;
+  height: 100px;
+  left: 270px;
+  position: absolute;
+  top: 325px;
+}
+
+.input-head {
+  font-size: 24px;
+}
+label {
+  padding-top: 7px;
+  display: flex;
+}
+.button {
+  width: 125px;
+  height: 50px;
+  border: none;
+  outline: none;
+  background: black;
+  opacity: 80%;
+  color: #fff;
+  font-size: 18px;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 6px 20px -5px rgba(0, 0, 0, 0.4);
+  position: absolute;
+  overflow: hidden;
+  cursor: pointer;
+  font-family: inherit;
+  stroke: 1px;
+}
+.search-button{
+  width: 125px;
+  height: 50px;
+  border: none;
+  outline: none;
+  background: black;
+  opacity: 80%;
+  color: #fff;
+  font-size: 24px;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 6px 20px -5px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+  cursor: pointer;
+  font-family: inherit;
+  stroke: 1px;
+}
+#register {
+  position: absolute;
+  left: 270px;
+  top: 475px;
+  transition: transform 0.25s;
+}
+#register:hover {
+  transform: scale(1.01);
+}
+.log-in{
+  position: absolute;
+  left: 270px;
+  top: 185px;
+  height: 500px;
+  width: 500px;
+  display: inline-block;
+}
+
+#login{
+  transition: transform 0.25s;
+}
+#login:hover{
+  transform: scale(1.01);
+}
+.divine{
+      position: absolute;
+    height: fit-content;
+    margin-left: 65px;
+    width: 90vw;
+    background: #000000b0;
+    display: inline-block;
+    border: 1px #0000007a;
+    border-radius: 25px;
+    margin-bottom: 15px;
+    backdrop-filter: blur(4px);
+    }
