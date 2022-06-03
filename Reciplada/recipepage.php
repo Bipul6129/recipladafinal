@@ -16,7 +16,7 @@ include "data_config.php";?>
 		<nav class="main-nav">
 			<ul>
 				<li><div><input id="searchbar"type="text" class="search-bar" placeholder="Search..." onkeypress="clickpress(event)"></div></li>
-				<li><a href="sign-in.html"><div class="sign-in">Profile</div></a>
+				<li><a href="profile.php"><div class="sign-in">Profile</div></a>
           <ul>
             <li class="nest"><a href="favoritepage.php">Favorites</a></li>
     				<li class="nest"> <a href="logoutprocess.php">Log out</a> </li>

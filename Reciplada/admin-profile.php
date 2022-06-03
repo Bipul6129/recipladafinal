@@ -1,4 +1,3 @@
-
 <?php
 session_start();
 include "data_config.php";
@@ -34,7 +33,7 @@ $result=mysqli_query($conn,$query);
             echo "<script>alert('You are not an admin'); </script>";
         }
         if($_GET['added']==true){
-            echo "<script>alert('Added to favorites'); </script>";
+            // echo "<script>alert('Added to favorites'); </script>";
         }
         if($_GET['notadded']==true){
             echo "<script>alert('Failed to add'); </script>";
@@ -52,74 +51,80 @@ $result=mysqli_query($conn,$query);
 	<link rel="stylesheet" type="text/css" href="reciplada.css">
 	<link rel="stylesheet" type="text/css" href="mainpage.css">
   <script src="https://kit.fontawesome.com/f6dcf461c1.js" crossorigin="anonymous"></script>
+   <style>
+        table,th,td{
+                border: 1px solid white;
+                border-collapse: collapse;
+            }
+        th,td{
+            padding: 10px;
+            font-weight: 1;
+        }
+        tr:nth-child(even) {
+          background-color: #0000009c;
+        }
+        #btn-create{
+            resize: none;
+            outline: none;
+            background-color:  #0000009c;
+            border: 1px solid white ;
+            border-radius: 10px;
+            color: white;
+            padding: 5px;
+            width: 20%;
+            height: 40px;
+            transition: transform 0.25s;
+        }
+        #btn-create:hover{
+            transform: scale(1.05);
+            }   
+        .i_name{
+            border: 1px solid white ;
+            border-radius: 5px;
+            background-color:transparent;
+            resize: none;
+            outline: none;
+            position: relative;
+            height:50px;
+            width: 400px;
+            color: white;
+            font-family: inherit;
+            transition: transform 0.5s;
+
+        }
+        .i_name::placeholder{
+            color: #c5c5c5;
+        }
+        .i_name:hover,.i_name:focus{
+            transform: scale(1.05);
+        }     
+    </style>
 </head>
 <body style="overflow-x: hidden;">
 <div class="wrapper">
     <header class="main-header">
-		<a href="homepage.php"><div class="brand-logo"></div></a>
+		<a href="adminpage.php"><div class="brand-logo"></div></a>
 		<nav class="main-nav">
 			<ul>
 				<li><div><input id="searchbar"type="text" class="search-bar" placeholder="Search..." onkeypress="clickpress(event)"></div></li>
 				<li><a href="profile.php"><div class="sign-in">Profile</div></a>
           <ul>
-            <li class="nest"><a href="favoritepage.php">Favorites</a></li>
-    				<li class="nest"> <a href="logoutprocess.php">Log out</a> </li>
+                <li class="nest"><a href="editprofile.php">Edit</a></li>
             
           </ul>
         </li>
-        <li><a href="searchpage.php"><div class="advance-search" style="margin-top:20px">Advanced search</div></a></li>
+            <li>
+                <li><a href="logoutprocess.php"><div class="sign-up">Log out</div></a></li>
 
-				
-			</ul>
+            </li>	
+		</ul>
 		</nav>
 	</header>
 
-    <div class="cardcontainer">
-      <h1 style="font-style: inherit; text-align: center; font-weight: normal;">Recipes</h1>
-       <?php
-       $count=0;
 
-       while($row=mysqli_fetch_assoc($result)){
-           $count=1;
-       ?>
-           <div class="cards">
-           	   <!--IMAGES -->
-                <div class="recipe_image">
-                	<?php
-               	
-                    echo '<img src="data:image/jpeg;base64,'.( $row['recipe_image'] ).'"style="height:290px;width:100%;"/>';
-            
-               	?>
-                </div>
 
-               <!-- HEADINGS -->
-               <div class="card_heading">
-               	<?php echo ($row['recipe_name'])." /";?>
-               	<?php echo ($row['recipe_time']);?>
 
-                  <form method="post" action="addfavorite(process).php?recipeid=<?php echo($row['recipe_id'])?>">
-                  <button onclick="toggle()" id="favorite" class="favorite" value="add" name="add"><i class="fas fa-heart"></i></button>
-               </form>
-               </div>
-
-               <!-- BUTTONS -->
-               <div class="buttons_container">
-               <form method="post"  action="recipepage.php?id=<?php echo($row['recipe_id'])?>">
-                 <button class="details" name="viewrecipe" style="height: 50px;">Details</button>
-               </form>
-               </div>
-          </div>   
-       <?php
-        }
-        if($count==0){
-            echo "nothing found";
-        }
-       ?>  
-
-    </div>
-</div>
-
-    <script>
+<script>
       var favorite = document.getElementById('favorite');
          function toggle(){
                 if (favorite.style.color =="#ff3252") {
@@ -142,7 +147,43 @@ $result=mysqli_query($conn,$query);
     }
 }
 
-    </script>
+</script>
+
+
+<?php
+$user_id=$_SESSION['user_id'];
+$sqluser="select * from user_detail where user_id='$user_id'";
+$resultuser=mysqli_query($conn,$sqluser);
+while($row=mysqli_fetch_assoc($resultuser)){
+?>
+<table style=" position: relative; left: 380px; top:-35px; background: #00000061;backdrop-filter: blur(4px);" border="1" width="700px">
+<tr>
+  <th colspan="2">Profile</th>
+</tr>
+<tr>
+  <td>Name:</td>
+  <td><?php echo $row['user_name'] ?></td>
+<tr>
+  <td>Email:</td>
+  <td><?php echo $row['user_email'] ?></td>
+</tr>
+<?php
+if($row['is_admin']==1){
+    $status="admin";
+}else{
+    $status="notadmin";
+}
+?>
+<tr>
+<td>Status:</td>
+<td><?php echo $status ?></td>
+</tr>
+</table>
+
+<?php
+}
+?>
+
 <footer style="height: 60px; padding-top: 25px;position: absolute;bottom: -120px;background-color: transparent;width: 98vw;left: 0;right: 0;">   
 </footer>
 

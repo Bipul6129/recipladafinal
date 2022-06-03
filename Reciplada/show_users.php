@@ -32,7 +32,7 @@ if($_SESSION['is_admin']!=1){
         <a href="adminpage.php"><div class="brand-logo"></div></a>
         <nav class="main-nav">
             <ul>
-                <li><a href=""><div class="sign-in">Profile</div></a></li>
+                <li><a href="admin-profile.php"><div class="sign-in">Profile</div></a></li>
                 <li><a href="logoutprocess.php"><div class="sign-up">Log out</div></a></li>
                 
             </ul>

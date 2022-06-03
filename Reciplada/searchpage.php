@@ -24,7 +24,7 @@ include "data_config.php";
 		<nav class="main-nav">
 			<ul>
 				<li><div><input id="searchbar"type="text" class="search-bar" placeholder="Search..." onkeypress="clickpress(event)"></div></li>
-				<li><a href="sign-in.html"><div class="sign-in">Profile</div></a>
+				<li><a href="profile.php"><div class="sign-in">Profile</div></a>
           <ul>
             <li class="nest"><a href="favoritepage.php">Favorites</a></li>
     				<li class="nest"> <a href="logoutprocess.php">Log out</a> </li>
@@ -37,7 +37,7 @@ include "data_config.php";
 			</ul>
 		</nav>
 </header>
- <div class="searchpage" style="position: absolute;width: 500px;margin-left: 300px; font-size: 20px;">
+ <div class="searchpage" style="position: absolute;width: 500px;margin-left: 400px; font-size: 20px;">
 
 	<form method="post" action="searchalgorithm.php">
 		<?php
@@ -54,15 +54,17 @@ include "data_config.php";
 		
 			
 		</div> <br>
+		
 			<?php
 		}
-
+		?>
+		<div style="position: absolute; left:500px; width:fit-content; top:0;">
+		<?php
 		echo "<h2>Exclude</h2>";
-
 		while($row1=mysqli_fetch_assoc($result1)){
 			if($row1['ingredient_name']!="all"){
 			?>
-			<div style="margin-top: 15px;" >
+			<div style="margin-top:15px;" >
 			<input type="checkbox" class="check"  name="excludeingre[]" value="<?php echo $row1['ingredient_name']?>"><?php echo $row1['ingredient_name'] ?><br>
 			</div> <br>
 			<?php
@@ -71,7 +73,7 @@ include "data_config.php";
 		
 		?>
 		
-
+	</div>
 		<button name="search" class="search-button" style="width: 125px;
 		  height: 50px;
 		  border: none;
