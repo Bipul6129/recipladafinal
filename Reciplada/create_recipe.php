@@ -170,6 +170,9 @@ if($_SESSION['is_admin']!=1){
           if($_GET['createsuccess']==true){
             echo "<script>alert('Successfully added'); </script>";
           }
+          if($_GET['noimg']==true){
+            echo "<script>alert('Please upload a jpeg image'); </script>";
+          }
           
           
     	?>

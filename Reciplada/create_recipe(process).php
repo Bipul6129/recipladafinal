@@ -13,7 +13,9 @@ if($_POST){
     $r_direction=$_POST['recipe_direction'];
     $r_keywords=$_POST['recipe_keywords'];
 
-
+    if(empty($_FILES['image']['tmp_name'])){
+        header('location:create_recipe.php?noimg=true');
+    }else{
     $image= $_FILES['image']['tmp_name'];
     $imagesize=$_FILES['image']['size'];
     $imagetype=$_FILES['image']['type'];
@@ -44,6 +46,7 @@ if($_POST){
     }
          }
     }
+}
 }else{
     header('location:create_recipe.php?nopostrequest=true');
     
