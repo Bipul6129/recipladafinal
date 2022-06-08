@@ -178,6 +178,9 @@ $r_id=$row['recipe_id'];
           if($_GET['createsuccess']==true){
             echo "<script>alert('Successfully added'); </script>";
           }
+          if($_GET['noimg']==true){
+            echo "<script>alert('Please upload a new image'); </script>";
+          }
           
           
     	?>
