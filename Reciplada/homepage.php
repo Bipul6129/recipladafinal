@@ -37,7 +37,7 @@ $result=mysqli_query($conn,$query);
             echo "<script>alert('Added to favorites'); </script>";
         }
         if($_GET['notadded']==true){
-            echo "<script>alert('Failed to add'); </script>";
+            echo "<script>alert('Recipe is already on favorite'); </script>";
         }
         
           

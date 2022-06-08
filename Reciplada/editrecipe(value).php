@@ -91,15 +91,15 @@ $r_id=$row['recipe_id'];
     </tr>
     <tr>
         <th>Recipe description: </th>
-        <th><textarea type="text" class="i-name" id="r_description" name="recipe_description" placeholder="" style="height: 100px;"value="<?php echo $row['recipe_description']?>"></textarea></th>
+        <th><textarea type="text" class="i-name" id="r_description" name="recipe_description" placeholder="" style="height: 100px;"><?php echo $row['recipe_description']?></textarea></th>
     </tr>
     <tr>
         <th>Recipe direction: </th>
-        <th><textarea type="text" class="i-name" id="r_direction" name="recipe_direction" placeholder="" style="height: 250px;" value="<?php echo $row['recipe_direction']?>"></textarea></th>
+        <th><textarea type="text" class="i-name" id="r_direction" name="recipe_direction" placeholder="" style="height: 250px;" ><?php echo $row['recipe_direction']?></textarea></th>
     </tr>
     <tr>
         <th>Recipe search keywords: </th>
-        <th><textarea type="text" class="i-name" id="r_keywords" name="recipe_keywords" placeholder="" value="<?php echo $row['search_keywords']?>">
+        <th><textarea type="text" class="i-name" id="r_keywords" name="recipe_keywords" placeholder=""> <?php echo $row['search_keywords']?>
         </textarea></th>
     </tr>
     <tr>

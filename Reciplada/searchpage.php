@@ -39,7 +39,7 @@ include "data_config.php";
 </header>
  <div class="searchpage" style="position: absolute;width: 500px;margin-left: 400px; font-size: 20px;">
 
-	<form method="post" action="searchalgorithm.php">
+	<form  method="post" action="searchalgorithm.php">
 		<?php
 		$sql="SELECT * from ingredient";
 		$result=mysqli_query($conn,$sql);
@@ -94,6 +94,7 @@ include "data_config.php";
 
     </form>
 </div>
+
  <script>
       var favorite = document.getElementById('favorite');
          function toggle(){
@@ -118,5 +119,19 @@ include "data_config.php";
 }
 
     </script>
+
+   <div id="hide" style="display: none;">
+    	<?php
+          if($_GET['notselected']==true){
+          	echo "<script>alert('Go to searchpage first'); </script>";
+          }
+		  if($_GET['samevalue']==true){
+			$samevalue=$_GET['samevalue'];  
+			echo "<script>alert('".$samevalue." selected on include and exclude')</script>";
+		}
+          
+          
+    	?>
+    </div>
 </body>
 </html>

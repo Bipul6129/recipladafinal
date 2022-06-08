@@ -6,32 +6,32 @@ include "check-login.php";
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Results</title>
+	<meta charset="utf-8">
+	<title>Home</title>
 	<link rel="stylesheet" type="text/css" href="reciplada.css">
-  <link rel="stylesheet" type="text/css" href="mainpage.css">
-    <script src="https://kit.fontawesome.com/f6dcf461c1.js" crossorigin="anonymous"></script>
-
+	<link rel="stylesheet" type="text/css" href="mainpage.css">
+  <script src="https://kit.fontawesome.com/f6dcf461c1.js" crossorigin="anonymous"></script>
 </head>
-<body style="overflow-x: hidden">
+<body style="overflow-x: hidden;">
 <div class="wrapper">
     <header class="main-header">
-    <a href="homepage.php"><div class="brand-logo"></div></a>
-    <nav class="main-nav">
-      <ul>
-        <li><div><input id="searchbar"type="text" class="search-bar" placeholder="Search..." onkeypress="clickpress(event)"></div></li>
-        <li><a href="sign-in.html"><div class="sign-in">Profile</div></a>
+		<a href="homepage.php"><div class="brand-logo"></div></a>
+		<nav class="main-nav">
+			<ul>
+				<li><div><input id="searchbar"type="text" class="search-bar" placeholder="Search..." onkeypress="clickpress(event)"></div></li>
+				<li><a href="profile.php"><div class="sign-in">Profile</div></a>
           <ul>
             <li class="nest"><a href="favoritepage.php">Favorites</a></li>
-            <li class="nest"> <a href="logoutprocess.php">Log out</a> </li>
+    				<li class="nest"> <a href="logoutprocess.php">Log out</a> </li>
             
           </ul>
         </li>
-        <li><a href="searchpage.php"><div class="advance-search" style="margin-top:20px">Advance search</div></a></li>
+        <li><a href="searchpage.php"><div class="advance-search" style="margin-top:20px">Advanced search</div></a></li>
 
-        
-      </ul>
-    </nav>
-  </header>
+				
+			</ul>
+		</nav>
+	</header>
 
 
 
@@ -46,6 +46,23 @@ include "data_config.php";
 
 
  if(isset($_POST['search'])){
+    
+    if(!empty($_POST['ingredient'])){
+    $ingredient_test=$_POST['ingredient'];
+    if(!empty($_POST['excludeingre'])){
+    $excludeingre_test=$_POST['excludeingre'];
+    foreach($ingredient_test as $value_inc){
+        foreach($excludeingre_test as $value_exc){
+            if($value_inc==$value_exc){
+                // echo "<script>alert('".$value_exc." selected on include and exclude')</script>";
+                header('location:searchpage.php?samevalue='.$value_inc);
+            }
+
+        }
+
+    }
+    }
+    }
 
     //IF INGREDIENT ARE SELECTED CHECKBOX//
  	if(!empty($_POST['ingredient'])){
@@ -117,33 +134,34 @@ include "data_config.php";
         <?php
            //PRINT AFTER FILTER///
            foreach($selectall as $key=>$value){?>
-           <div class="cards">
-               <!--IMAGES -->
+           <div class="cards" >
+           	   <!--IMAGES -->
                 <div class="recipe_image">
-                  <?php
-                
+                	<?php
+               	
                     echo '<img src="data:image/jpeg;base64,'.( $value['recipe_image'] ).'"style="height:290px;width:100%;"/>';
             
-                ?>
+               	?>
                 </div>
 
                <!-- HEADINGS -->
                <div class="card_heading">
-                <?php echo ($value['recipe_name'])." /";?>
-                <?php echo ($value['recipe_time']);?>
-
-                  <form method="post" action="addfavorite(process).php?recipeid=<?php echo($row['recipe_id'])?>">
-                  <button onclick="toggle()" id="favorite" class="favorite" value="add" name="add"><i class="fas fa-heart"></i></button>
-               </form>
+               	<?php echo ($value['recipe_name'])." /";?>
+               	<?php echo ($value['recipe_time']);?>
                </div>
 
                <!-- BUTTONS -->
                <div class="buttons_container">
-               <form method="post"  action="recipepage.php?id=<?php echo($row['recipe_id'])?>">
-                 <button class="details" name="viewrecipe">Details</button>
+               <form method="post"  action="recipepage.php?id=<?php echo($value['recipe_id'])?>">
+               <button class="buttons"  style="position: relative; margin-right: 3.5px;" name="viewrecipe">Details</button>
+               </form>
+               <form method="post" action="homepage.php?name=<?php echo($value['recipe_name'])?>">
+               <button class="buttons" name="add"  style="position: relative;margin-left: 3.5px;" value="add">Add to favourite</button>
                </form>
                </div>
-          </div>  
+
+
+            </div>
 
 
 
@@ -169,33 +187,34 @@ include "data_config.php";
                 ?>
             
             
-           <div class="cards">
-               <!--IMAGES -->
+            <div class="cards">
+           	   <!--IMAGES -->
                 <div class="recipe_image">
-                  <?php
-                
+                	<?php
+               	
                     echo '<img src="data:image/jpeg;base64,'.( $value['recipe_image'] ).'"style="height:290px;width:100%;"/>';
             
-                ?>
+               	?>
                 </div>
 
                <!-- HEADINGS -->
                <div class="card_heading">
-                <?php echo ($value['recipe_name'])." /";?>
-                <?php echo ($value['recipe_time']);?>
-
-                  <form method="post" action="addfavorite(process).php?recipeid=<?php echo($row['recipe_id'])?>">
-                  <button onclick="toggle()" id="favorite" class="favorite" value="add" name="add"><i class="fas fa-heart"></i></button>
-               </form>
+               	<?php echo ($value['recipe_name'])." /";?>
+               	<?php echo ($value['recipe_time']);?>
                </div>
 
                <!-- BUTTONS -->
                <div class="buttons_container">
-               <form method="post"  action="recipepage.php?id=<?php echo($row['recipe_id'])?>">
-                 <button class="details" name="viewrecipe">Details</button>
+               <form method="post"  action="recipepage.php?id=<?php echo($value['recipe_id'])?>">
+               <button class="buttons"  style="position: relative; margin-right: 3.5px;" name="viewrecipe">Details</button>
+               </form>
+               <form method="post" action="homepage.php?name=<?php echo($value['recipe_name'])?>">
+               <button class="buttons" name="add"  style="position: relative;margin-left: 3.5px;" value="add">Add to favourite</button>
                </form>
                </div>
-          </div> 
+
+
+            </div>
             
             
 
@@ -258,38 +277,39 @@ include "data_config.php";
                             }
             }
         }?>
-        <div class="cardcontainer">
+        <div class="cardscontainer">
 
         <?php
         //PRINT AFTER FILTER/////
          foreach($selectedrecipe as $key => $value){?>
-           <div class="cards">
-               <!--IMAGES -->
+         <div class="cards" >
+           	   <!--IMAGES -->
                 <div class="recipe_image">
-                  <?php
-                
+                	<?php
+               	
                     echo '<img src="data:image/jpeg;base64,'.( $value['recipe_image'] ).'"style="height:290px;width:100%;"/>';
             
-                ?>
+               	?>
                 </div>
 
                <!-- HEADINGS -->
                <div class="card_heading">
-                <?php echo ($value['recipe_name'])." /";?>
-                <?php echo ($value['recipe_time']);?>
-
-                  <form method="post" action="addfavorite(process).php?recipeid=<?php echo($row['recipe_id'])?>">
-                  <button onclick="toggle()" id="favorite" class="favorite" value="add" name="add"><i class="fas fa-heart"></i></button>
-               </form>
+               	<?php echo ($value['recipe_name'])." /";?>
+               	<?php echo ($value['recipe_time']);?>
                </div>
 
                <!-- BUTTONS -->
                <div class="buttons_container">
-               <form method="post"  action="recipepage.php?id=<?php echo($row['recipe_id'])?>">
-                 <button class="details" name="viewrecipe">Details</button>
+               <form method="post"  action="recipepage.php?id=<?php echo($value['recipe_id'])?>">
+               <button class="buttons"  style="position: relative; margin-right: 3.5px;" name="viewrecipe">Details</button>
+               </form>
+               <form method="post" action="homepage.php?name=<?php echo($value['recipe_name'])?>">
+               <button class="buttons" name="add"  style="position: relative;margin-left: 3.5px;" value="add">Add to favourite</button>
                </form>
                </div>
-          </div> 
+
+
+            </div>
 
 
          <?php 
@@ -304,44 +324,51 @@ include "data_config.php";
         //PRINT IF THERES NO EXCLUDE INGREDIENT///
         else{
             ?>
-            <div class="cardcontainer">
+        <div class="cardscontainer" style="grid-row: 2/3;
+        max-width: 95%;
+        margin-left: 23px;
+        background: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(10px);
+        border-radius: 11px;">
 
-            <?php
-            foreach($selectedrecipe as $key => $value){?>
-           <div class="cards">
-               <!--IMAGES -->
+        <?php
+        //PRINT AFTER FILTER/////
+         foreach($selectedrecipe as $key => $value){?>
+         <div class="cards" >
+           	   <!--IMAGES -->
                 <div class="recipe_image">
-                  <?php
-                
+                	<?php
+               	
                     echo '<img src="data:image/jpeg;base64,'.( $value['recipe_image'] ).'"style="height:290px;width:100%;"/>';
             
-                ?>
+               	?>
                 </div>
 
                <!-- HEADINGS -->
                <div class="card_heading">
-                <?php echo ($value['recipe_name'])." /";?>
-                <?php echo ($value['recipe_time']);?>
-
-                  <form method="post" action="addfavorite(process).php?recipeid=<?php echo($row['recipe_id'])?>">
-                  <button onclick="toggle()" id="favorite" class="favorite" value="add" name="add"><i class="fas fa-heart"></i></button>
-               </form>
+               	<?php echo ($value['recipe_name'])." /";?>
+               	<?php echo ($value['recipe_time']);?>
                </div>
 
                <!-- BUTTONS -->
                <div class="buttons_container">
-               <form method="post"  action="recipepage.php?id=<?php echo($row['recipe_id'])?>">
-                 <button class="details" name="viewrecipe">Details</button>
+               <form method="post"  action="recipepage.php?id=<?php echo($value['recipe_id'])?>">
+               <button class="buttons"  style="position: relative; margin-right: 3.5px;" name="viewrecipe">Details</button>
+               </form>
+               <form method="post" action="homepage.php?name=<?php echo($value['recipe_name'])?>">
+               <button class="buttons" name="add"  style="position: relative;margin-left: 3.5px;" value="add">Add to favourite</button>
                </form>
                </div>
-          </div> 
+
+
+            </div>
 
 
             <?php
                 // echo $value['recipe_name']."<br>";
              }
              ?>
-             </div>
+        </div>
              <?php
         }
     }
@@ -350,8 +377,10 @@ include "data_config.php";
          
 
 }else{
-    echo "nothing selected";
+    echo "Nothing selected on include recipe";
  }
+ }else{
+     header('location:searchpage.php?notselected=true');
  }
 
 
@@ -361,29 +390,5 @@ include "data_config.php";
 
 
 </div>
- <script>
-      var favorite = document.getElementById('favorite');
-         function toggle(){
-                if (favorite.style.color =="#ff3252") {
-                    favorite.style.color = "grey"
-                }
-                else{
-                   favorite.style.color = "#ff3252"
-                }
-       }
-
-        function clickpress(event) {
-    if (event.keyCode == 13) {
-        vari=document.getElementById('searchbar').value;
-        if(vari.length<3){
-            alert('type more than 3 length of characters');
-        }else{
-
-        window.location.replace("homepage.php?searchbar="+vari);
-        }
-    }
-}
-
-    </script>
 </body>
 </html>
