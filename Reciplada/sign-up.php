@@ -43,6 +43,7 @@
   		<br/>
   		<div id="register">
               <button "type="submit" class="button">Register</button>
+			  
 		</div>
 		</form>
 	</div>

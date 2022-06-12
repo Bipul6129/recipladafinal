@@ -23,6 +23,11 @@ if($_POST){
                 header('location:adminpage.php?welcome=true');
                 
 
+            }else if($row['verify']==1){
+                $sql="DELETE FROM `user_detail` WHERE `user_detail`.`user_email` = '$email'";
+                $result=mysqli_query($conn,$sql);
+                header('location:index.php?notverified=true');
+
             }else{
                 $userid=$row['user_id'];
                 $statsql="UPDATE `user_detail` SET `status`='1' WHERE user_id='$userid'";

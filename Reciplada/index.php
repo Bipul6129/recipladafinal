@@ -37,6 +37,12 @@
 		  if($_GET['logout']==true){
 			echo "<script>alert('You are logged out'); </script>";
 		  }
+		  if($_GET['failedotp']==true){
+			echo "<script>alert('Signup failed....OTP failed'); </script>";
+		  }
+		  if($_GET['verified']==true){
+			echo "<script>alert('Account created successfully'); </script>";
+		  }
 
           
     	?>
