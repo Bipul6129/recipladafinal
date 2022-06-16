@@ -97,8 +97,26 @@ $result=mysqli_query($conn,$query);
                	<?php echo ($row['recipe_name'])." /";?>
                	<?php echo ($row['recipe_time']);?>
 
+                <!-- //COLOR CHANGE CODEEE -->
+                 <?php
+                  $userid=$_SESSION['user_id'];
+                  $recipeid=$row['recipe_id'];
+                  // echo "<script>alert('".$recipeid."')</script>";
+                  $sql1="select * from user_recipe where user_id='$userid' and recipe_id='$recipeid'";
+                  $result1=mysqli_query($conn,$sql1);
+                  $rowcount=mysqli_num_rows($result1); 
+                  if($rowcount>0){
+                    // echo "<script>alert('red')</script>";
+                    $color='red';
+                  }else{
+                    // echo "<script>alert('grey')</script>";
+                    $color='grey';
+                  }
+                  
+                  ?>
                   <form method="post" action="addfavorite(process).php?recipeid=<?php echo($row['recipe_id'])?>">
-                  <button onclick="toggle()" id="favorite" class="favorite" value="add" name="add"><i class="fas fa-heart"></i></button>
+                  <!-- //EDITED HERE TOOO -->
+                  <button  id="favorite" class="favorite" value="add" name="add" style="color:<?php echo $color;?>"><i class="fas fa-heart"></i></button>
                </form>
                </div>
 
