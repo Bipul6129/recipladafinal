@@ -148,20 +148,37 @@ include "data_config.php";
                <div class="card_heading">
                	<?php echo ($value['recipe_name'])." /";?>
                	<?php echo ($value['recipe_time']);?>
+
+                <!-- //COLOR CHANGE CODEEE -->
+                 <?php
+                  $userid=$_SESSION['user_id'];
+                  $recipeid=$value['recipe_id'];
+                  // echo "<script>alert('".$recipeid."')</script>";
+                  $sql1="select * from user_recipe where user_id='$userid' and recipe_id='$recipeid'";
+                  $result1=mysqli_query($conn,$sql1);
+                  $rowcount=mysqli_num_rows($result1); 
+                  if($rowcount>0){
+                    // echo "<script>alert('red')</script>";
+                    $color='red';
+                  }else{
+                    // echo "<script>alert('grey')</script>";
+                    $color='grey';
+                  }
+                  
+                  ?>
+                  <form method="post" action="addfavorite(process).php?recipeid=<?php echo($value['recipe_id'])?>">
+                  <!-- //EDITED HERE TOOO -->
+                  <button  id="favorite" class="favorite" value="add" name="add" style="color:<?php echo $color;?>"><i class="fas fa-heart"></i></button>
+               </form>
                </div>
 
                <!-- BUTTONS -->
                <div class="buttons_container">
                <form method="post"  action="recipepage.php?id=<?php echo($value['recipe_id'])?>">
-               <button class="buttons"  style="position: relative; margin-right: 3.5px;" name="viewrecipe">Details</button>
-               </form>
-               <form method="post" action="homepage.php?name=<?php echo($value['recipe_name'])?>">
-               <button class="buttons" name="add"  style="position: relative;margin-left: 3.5px;" value="add">Add to favourite</button>
+                 <button class="details" name="viewrecipe" style="height: 50px;">Details</button>
                </form>
                </div>
-
-
-            </div>
+          </div>   
 
 
 
@@ -201,20 +218,37 @@ include "data_config.php";
                <div class="card_heading">
                	<?php echo ($value['recipe_name'])." /";?>
                	<?php echo ($value['recipe_time']);?>
+
+                <!-- //COLOR CHANGE CODEEE -->
+                 <?php
+                  $userid=$_SESSION['user_id'];
+                  $recipeid=$value['recipe_id'];
+                  // echo "<script>alert('".$recipeid."')</script>";
+                  $sql1="select * from user_recipe where user_id='$userid' and recipe_id='$recipeid'";
+                  $result1=mysqli_query($conn,$sql1);
+                  $rowcount=mysqli_num_rows($result1); 
+                  if($rowcount>0){
+                    // echo "<script>alert('red')</script>";
+                    $color='red';
+                  }else{
+                    // echo "<script>alert('grey')</script>";
+                    $color='grey';
+                  }
+                  
+                  ?>
+                  <form method="post" action="addfavorite(process).php?recipeid=<?php echo($value['recipe_id'])?>">
+                  <!-- //EDITED HERE TOOO -->
+                  <button  id="favorite" class="favorite" value="add" name="add" style="color:<?php echo $color;?>"><i class="fas fa-heart"></i></button>
+               </form>
                </div>
 
                <!-- BUTTONS -->
                <div class="buttons_container">
                <form method="post"  action="recipepage.php?id=<?php echo($value['recipe_id'])?>">
-               <button class="buttons"  style="position: relative; margin-right: 3.5px;" name="viewrecipe">Details</button>
-               </form>
-               <form method="post" action="homepage.php?name=<?php echo($value['recipe_name'])?>">
-               <button class="buttons" name="add"  style="position: relative;margin-left: 3.5px;" value="add">Add to favourite</button>
+                 <button class="details" name="viewrecipe" style="height: 50px;">Details</button>
                </form>
                </div>
-
-
-            </div>
+          </div>   
             
             
 
@@ -277,7 +311,12 @@ include "data_config.php";
                             }
             }
         }?>
-        <div class="cardscontainer">
+        <div class="cardscontainer" style="grid-row: 2/3;
+  max-width: 95%;
+  margin-left: 23px;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  border-radius: 11px;">
 
         <?php
         //PRINT AFTER FILTER/////
@@ -296,20 +335,37 @@ include "data_config.php";
                <div class="card_heading">
                	<?php echo ($value['recipe_name'])." /";?>
                	<?php echo ($value['recipe_time']);?>
+
+                <!-- //COLOR CHANGE CODEEE -->
+                 <?php
+                  $userid=$_SESSION['user_id'];
+                  $recipeid=$value['recipe_id'];
+                  // echo "<script>alert('".$recipeid."')</script>";
+                  $sql1="select * from user_recipe where user_id='$userid' and recipe_id='$recipeid'";
+                  $result1=mysqli_query($conn,$sql1);
+                  $rowcount=mysqli_num_rows($result1); 
+                  if($rowcount>0){
+                    // echo "<script>alert('red')</script>";
+                    $color='red';
+                  }else{
+                    // echo "<script>alert('grey')</script>";
+                    $color='grey';
+                  }
+                  
+                  ?>
+                  <form method="post" action="addfavorite(process).php?recipeid=<?php echo($value['recipe_id'])?>">
+                  <!-- //EDITED HERE TOOO -->
+                  <button  id="favorite" class="favorite" value="add" name="add" style="color:<?php echo $color;?>"><i class="fas fa-heart"></i></button>
+               </form>
                </div>
 
                <!-- BUTTONS -->
                <div class="buttons_container">
                <form method="post"  action="recipepage.php?id=<?php echo($value['recipe_id'])?>">
-               <button class="buttons"  style="position: relative; margin-right: 3.5px;" name="viewrecipe">Details</button>
-               </form>
-               <form method="post" action="homepage.php?name=<?php echo($value['recipe_name'])?>">
-               <button class="buttons" name="add"  style="position: relative;margin-left: 3.5px;" value="add">Add to favourite</button>
+                 <button class="details" name="viewrecipe" style="height: 50px;">Details</button>
                </form>
                </div>
-
-
-            </div>
+          </div>   
 
 
          <?php 
@@ -348,20 +404,37 @@ include "data_config.php";
                <div class="card_heading">
                	<?php echo ($value['recipe_name'])." /";?>
                	<?php echo ($value['recipe_time']);?>
+
+                <!-- //COLOR CHANGE CODEEE -->
+                 <?php
+                  $userid=$_SESSION['user_id'];
+                  $recipeid=$value['recipe_id'];
+                  // echo "<script>alert('".$recipeid."')</script>";
+                  $sql1="select * from user_recipe where user_id='$userid' and recipe_id='$recipeid'";
+                  $result1=mysqli_query($conn,$sql1);
+                  $rowcount=mysqli_num_rows($result1); 
+                  if($rowcount>0){
+                    // echo "<script>alert('red')</script>";
+                    $color='red';
+                  }else{
+                    // echo "<script>alert('grey')</script>";
+                    $color='grey';
+                  }
+                  
+                  ?>
+                  <form method="post" action="addfavorite(process).php?recipeid=<?php echo($value['recipe_id'])?>">
+                  <!-- //EDITED HERE TOOO -->
+                  <button  id="favorite" class="favorite" value="add" name="add" style="color:<?php echo $color;?>"><i class="fas fa-heart"></i></button>
+               </form>
                </div>
 
                <!-- BUTTONS -->
                <div class="buttons_container">
                <form method="post"  action="recipepage.php?id=<?php echo($value['recipe_id'])?>">
-               <button class="buttons"  style="position: relative; margin-right: 3.5px;" name="viewrecipe">Details</button>
-               </form>
-               <form method="post" action="homepage.php?name=<?php echo($value['recipe_name'])?>">
-               <button class="buttons" name="add"  style="position: relative;margin-left: 3.5px;" value="add">Add to favourite</button>
+                 <button class="details" name="viewrecipe" style="height: 50px;">Details</button>
                </form>
                </div>
-
-
-            </div>
+          </div>   
 
 
             <?php
@@ -377,7 +450,7 @@ include "data_config.php";
          
 
 }else{
-    echo "Nothing selected on include recipe";
+    echo "<h1>Nothing selected on include recipe</h1>";
  }
  }else{
      header('location:searchpage.php?notselected=true');

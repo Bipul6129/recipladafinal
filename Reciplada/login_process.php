@@ -9,6 +9,8 @@ if($_POST){
     if(empty($email)||empty($password)){
         header("location:sign-in.php?empty=true");
     }else{
+        
+
         $sql="select * from user_detail where user_email='$email' and user_password='$password'";
         $result=mysqli_query($conn,$sql);
         if($row=mysqli_fetch_assoc($result)){

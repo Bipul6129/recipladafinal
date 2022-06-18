@@ -43,6 +43,9 @@
 		  if($_GET['verified']==true){
 			echo "<script>alert('Account created successfully'); </script>";
 		  }
+		  if($_GET['notverified']==true){
+			echo "<script>alert('Email previously failed to verify.... Sign-up again'); </script>";
+		}
 
           
     	?>

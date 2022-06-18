@@ -112,6 +112,12 @@
 		  if($_GET['same_email']==true){
 			echo "<script>alert('Email already exists'); </script>";
 		}
+		if($_GET['notverified']==true){
+			echo "<script>alert('Email previously failed to verify.... Sign-up again'); </script>";
+		}
+		if($_GET['emailnotsent']==true){
+			echo "<script>alert('Email failed to be sent'); </script>";
+		}
           
     	?>
     </div>

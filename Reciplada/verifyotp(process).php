@@ -2,6 +2,9 @@
 include "data_config.php";
 session_start();
 $enterotp=$_POST['otpnum'];    
+if(!isset($_SESSION['otpnum'])){
+    header('location:sign-up.php?nootp=true');
+}
 if($_SESSION['otpnum']==$enterotp){
     $email=$_SESSION['notverified_user'];
     $sql="UPDATE `user_detail` SET `verify` = '0' WHERE user_email='$email'";

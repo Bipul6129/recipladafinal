@@ -18,6 +18,15 @@ if($_POST){
     //     header('location:sign-up.php?same_email=true');
         
     // }
+    }else if($email==$getrow['user_email']){
+        if($getrow['verify']==1){
+        $sql2="DELETE FROM `user_detail` WHERE `user_detail`.`user_email` = '$email'";
+        $result2=mysqli_query($conn,$sql2);
+        header('location:sign-up.php?notverified=true');
+        }else{
+            header('location:sign-up.php?same_email=true');    
+        }
+
     }else{
         $sql="INSERT INTO `user_detail`(`user_id`, `user_name`, `user_email`, `user_password`,`verify`) VALUES ('NULL','$fullname','$email','$password',1)";
         $result=mysqli_query($conn,$sql);
@@ -33,13 +42,15 @@ if($_POST){
             $headers = "From: sender email";
             if (mail($to_email, $subject, $body, $headers)) {
                 echo "<script>alert('Email sent to " .$to_email."')</script>";
+                header('location:verifyotp.php');
             } else {
                 echo "<script>alert('Email not sent')</script>";
+                header('location:sign-up.php?emailnotsent=true');
             } 
 
             echo"<script>alert('verify your email with otp')</script>";
             // header('location:sign-up.php?signupsuccess=true');
-            header('location:verifyotp.php');
+            
         }
         echo "success";
         }
